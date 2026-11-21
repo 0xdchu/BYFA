@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build Your First Agent Team · DigiSkill</title>
+<meta name="description" content="Chương trình online 8 buổi cho người non-tech: dựng một team AI agent làm việc như một phòng ban đầy đủ. Học phí từ 80 USD.">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<link rel="canonical" href="https://digiskill.ai/byat/build-your-first-agent-team">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DigiSkill">
+<meta property="og:title" content="Build Your First Agent Team · 8 buổi online · từ 80 USD">
+<meta property="og:description" content="Dựng một team AI agent làm việc như một phòng ban, không cần biết code.">
+<meta property="og:image" content="https://digiskill.ai/assets/img/og.jpg?v=3">
+<link rel="icon" href="/assets/img/logo.svg?v=3" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0f;--bg-soft:#0e0e15;--card:#12121a;--card-hover:#191924;--border:#27272f;--border-hi:#3a3a46;
+  --text:#ededf2;--muted:#a1a1aa;--dim:#71717a;
+  --accent:#6366f1;--accent-hover:#818cf8;--accent-strong:#5558e8;--accent-soft:rgba(99,102,241,.14);--accent-tint:rgba(99,102,241,.06);--on-accent:#ffffff;
+  --ok:#34d399;--err:#f87171;--err-soft:rgba(248,113,113,.08);
+  --p1:#f472b6;--p2:#818cf8;--p3:#34d399;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --r:12px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent-hover)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2{font-family:var(--mono);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:0}
+h3{margin:0;font-size:15px;font-weight:600}
+section{padding:88px 0;border-top:1px solid var(--border)}
+.sec-h{text-align:center;margin-bottom:40px}
+.sec-h h2{font-size:clamp(26px,4vw,36px)}
+.sec-h p{color:var(--muted);margin:12px auto 0;max-width:600px}
+
+.nav{position:sticky;top:0;z-index:10;background:rgba(10,10,15,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav .wrap{height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none;font-weight:600}
+.nav nav{display:flex;align-items:center;gap:22px;font-size:14px}
+.nav nav a:not(.btn){color:var(--muted);text-decoration:none}
+.nav nav a:not(.btn):hover{color:var(--text)}
+@media (max-width:640px){.nav nav .hide-sm{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:10px;border:1px solid transparent;background:var(--accent);color:var(--on-accent);font:600 15px/1 var(--sans);text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s}
+.btn:hover{background:var(--accent-strong);color:var(--on-accent)}
+.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--accent-hover);outline-offset:3px}
+.btn-ghost{background:transparent;border-color:var(--border);color:var(--text)}
+.btn-ghost:hover{background:var(--card-hover);color:var(--text)}
+.btn-sm{height:36px;padding:0 14px;font-size:14px}
+
+.hero{padding:80px 0 72px;text-align:center;border-top:0;background:radial-gradient(60% 50% at 50% 0%,rgba(99,102,241,.18),transparent 70%)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border:1px solid var(--border);border-radius:999px;background:var(--card);color:var(--muted);font-size:13px}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok)}
+.hero h1{font-size:clamp(32px,6vw,58px);margin:22px auto 18px;max-width:820px}
+.hero h1 em{font-style:normal;color:var(--accent-hover)}
+.hero .sub{color:var(--muted);font-size:18px;max-width:620px;margin:0 auto}
+.hero .sub b{color:var(--text)}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.meta{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:22px;color:var(--dim);font-size:13.5px}
+.meta span::before{content:"✓ ";color:var(--ok)}
+
+.window{max-width:760px;margin:52px auto 0;border:1px solid var(--border);border-radius:14px;background:var(--bg-soft);overflow:hidden;box-shadow:0 30px 80px -30px rgba(99,102,241,.45);text-align:left}
+.window .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--border);font:500 12px var(--mono);color:var(--dim)}
+.window .bar b{width:10px;height:10px;border-radius:50%;background:var(--border)}
+.window .bar span{margin-left:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.org{padding:28px 22px 24px;display:grid;gap:14px;justify-items:center}
+.node{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:10px;background:var(--card);font-size:13.5px;min-width:0}
+.node small{display:block;color:var(--dim);font-size:11.5px}
+.node .dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.node.lead{border-color:var(--accent);background:var(--accent-soft)}
+.node.lead .dot{background:var(--accent-hover)}
+.row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:100%}
+.line{width:1px;height:18px;background:var(--border)}
+.log{border-top:1px solid var(--border);padding:12px 18px;font:500 12px/1.7 var(--mono);color:var(--dim)}
+.log .ok{color:var(--ok)}
+@media (max-width:560px){.row{grid-template-columns:repeat(2,minmax(0,1fr))}.org{padding:20px 14px}}
+
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.card{border:1px solid var(--border);border-radius:var(--r);background:var(--card);padding:18px;transition:background .15s,border-color .15s}
+.card:hover{background:var(--card-hover);border-color:var(--border-hi)}
+.card h3{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+.ic{flex:none;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent-hover)}
+.ic svg{width:16px;height:16px}
+
+.part{display:grid;grid-template-columns:240px 1fr;gap:28px;margin-top:34px}
+.part-l .pn{font:700 44px/1 var(--mono);color:transparent;-webkit-text-stroke:1.5px var(--pc)}
+.part-l h3{font-size:19px;margin:12px 0 8px}
+.part-l p{margin:0;color:var(--muted);font-size:14px}
+.mods{display:grid;gap:10px}
+details.mod{border:1px solid var(--border);border-radius:var(--r);background:var(--card)}
+details.mod[open]{border-color:var(--border-hi)}
+details.mod summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:14px 16px}
+details.mod summary::-webkit-details-marker{display:none}
+.mn{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font:700 13px var(--mono);color:var(--pc);background:color-mix(in srgb,var(--pc) 14%,transparent)}
+details.mod summary b{font-weight:600;font-size:15px;flex:1}
+details.mod summary .chev{color:var(--dim);transition:transform .15s}
+details.mod[open] summary .chev{transform:rotate(180deg)}
+.mod-body{padding:0 16px 16px 64px;color:var(--muted);font-size:14px}
+.mod-body ul{margin:8px 0 0;padding-left:18px}
+.mod-body li::marker{color:var(--pc)}
+@media (max-width:760px){.part{grid-template-columns:1fr;gap:16px}.mod-body{padding-left:16px}}
+
+.pt{max-width:760px;margin:0 auto;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--card)}
+.pt table{width:100%;border-collapse:collapse;font-size:14.5px}
+.pt th,.pt td{padding:13px 18px;border-bottom:1px solid var(--border);text-align:left}
+.pt td:last-child,.pt th:last-child{text-align:center;width:50%;background:var(--accent-tint)}
+.pt thead th{font-weight:600}
+.pt thead th:last-child{color:var(--accent-hover)}
+.pt thead th small{display:block;color:var(--dim);font-weight:400;font-size:12.5px}
+.pt td:first-child{font-weight:500}
+.yes{color:var(--ok);font-weight:700}
+.price-cell{font:700 20px var(--mono);color:var(--accent-hover)!important}
+.checkout{padding:22px 18px 24px;display:grid;gap:14px;justify-items:center;background:var(--accent-tint)}
+.checkout form{width:100%;max-width:400px;display:grid;gap:12px}
+.checkout label.f{font-size:13px;color:var(--muted);text-align:left}
+.checkout input[type=email]{width:100%;height:44px;padding:0 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text);font:inherit;margin-top:6px}
+.checkout input[type=email]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);text-align:left;cursor:pointer}
+.agree input{margin-top:3px;width:16px;height:16px;flex:none;accent-color:var(--accent)}
+.err{display:none;margin:0;padding:10px 12px;border:1px solid var(--err);border-radius:10px;background:var(--err-soft);color:var(--err);font-size:13px;text-align:left}
+.fine{margin:0;color:var(--dim);font-size:12.5px;text-align:center}
+@media (max-width:560px){.pt th,.pt td{padding:11px 12px;font-size:13.5px}}
+
+.faq{max-width:760px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--border);padding:18px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary span{color:var(--dim);transition:transform .15s}
+.faq details[open] summary span{transform:rotate(45deg)}
+.faq p{margin:10px 0 0;color:var(--muted);font-size:15px}
+
+footer{border-top:1px solid var(--border);color:var(--dim);font-size:13.5px}
+footer .wrap{padding-top:28px;padding-bottom:40px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--text)}
+footer nav{display:flex;flex-wrap:wrap;gap:18px}
+.pt{max-width:860px}
+.pt td:last-child,.pt th:last-child{width:auto}
+.pt th.tier,.pt td:not(:first-child){text-align:center;background:transparent}
+.pt thead th.tier{color:var(--text)}
+.pt .sel{background:var(--accent-tint)!important}
+.pt thead th.tier.sel{color:var(--accent-hover);box-shadow:inset 0 2px 0 var(--accent)}
+.no{color:var(--dim)}
+.pt{overflow-x:auto}
+.pt table{min-width:520px}
+.pick{border:0;padding:0;margin:0;display:grid;gap:8px}
+.pick legend{font-size:13px;color:var(--muted);margin-bottom:6px;padding:0}
+.pick label{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--bg-soft);cursor:pointer;font-size:14.5px}
+.pick label:hover{border-color:var(--border-hi)}
+.pick label:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.pick input{accent-color:var(--accent);margin:0}
+.hint{margin:0;font-size:13px;color:var(--muted);text-align:left}
+</style>
+</head>
+<body>
+
+<header class="nav">
+<div class="wrap">
+<a class="brand" href="/"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="var(--accent)"/><g fill="var(--on-accent)"><path fill-rule="evenodd" d="M30.5 25.5a12.5 12.5 0 1 1-8.6 21.6l-4.9 2.9 1.6-5.6A12.5 12.5 0 0 1 30.5 25.5zm0 6.3a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4z"/><rect x="39.8" y="13" width="6.6" height="38" rx="3.3"/></g></svg>DigiSkill</a>
+<nav aria-label="Chính">
+<a class="hide-sm" href="#hoc-gi">Học gì</a>
+<a class="hide-sm" href="#giao-trinh">Giáo trình</a>
+<a class="hide-sm" href="#faq">FAQ</a>
+<a class="btn btn-sm" href="#dang-ky">Đăng ký · từ $80</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<div class="wrap">
+<span class="eyebrow"><i></i>Chương trình online trực tiếp · 8 buổi · không cần code</span>
+<h1>Từ một chatbot<br>đến cả một <em>phòng ban AI</em></h1>
+<p class="sub">Bạn đã quen hỏi AI từng câu một. Chương trình này hướng dẫn bạn dựng <b>một team agent</b> có trưởng nhóm, người nghiên cứu, người viết và người kiểm tra, làm việc cho bạn mỗi ngày.</p>
+<div class="cta">
+<a class="btn" href="#dang-ky">Đăng ký · từ $80</a>
+<a class="btn btn-ghost" href="#giao-trinh">Xem giáo trình</a>
+</div>
+<div class="meta"><span>8 buổi live</span><span>Từ $80</span><span>Hoàn tiền trước buổi 2</span></div>
+
+<div class="window" aria-hidden="true">
+<div class="bar"><b></b><b></b><b></b><span>my-agent-team · phòng marketing</span></div>
+<div class="org">
+<div class="node lead"><i class="dot"></i><div>Trưởng nhóm<small>nhận yêu cầu · chia việc · gom kết quả</small></div></div>
+<div class="line"></div>
+<div class="row">
+<div class="node"><i class="dot"></i><div>Nghiên cứu<small>đọc web, tài liệu</small></div></div>
+<div class="node"><i class="dot"></i><div>Viết nội dung<small>bài, email, kịch bản</small></div></div>
+<div class="node"><i class="dot"></i><div>Phân tích<small>số liệu, báo cáo</small></div></div>
+<div class="node"><i class="dot"></i><div>Chăm sóc KH<small>trả lời tin nhắn</small></div></div>
+<div class="node"><i class="dot"></i><div>Vận hành<small>lịch, bảng tính</small></div></div>
+<div class="node"><i class="dot"></i><div>Kiểm tra<small>duyệt trước khi gửi</small></div></div>
+</div>
+</div>
+<div class="log">→ "Viết 5 bài giới thiệu chương trình tuần này"<br><span class="ok">✓</span> nghiên cứu xong · <span class="ok">✓</span> 5 bản nháp · <span class="ok">✓</span> đã kiểm tra · chờ bạn duyệt</div>
+</div>
+</div>
+</section>
+
+<section id="hoc-gi">
+<div class="wrap">
+<div class="sec-h"><h2>Bạn sẽ học gì</h2><p>Mỗi kỹ năng đều làm trên việc thật của bạn, không phải ví dụ mẫu.</p></div>
+<div class="grid">
+<div class="card"><h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span>Giao việc cho agent</h3><p>Viết "mô tả công việc" cho agent: vai trò, mục tiêu, tiêu chuẩn đầu ra, điều không được làm.</p></div>
+<div class="card"><h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 10h16M10 10v10"/></svg></span>Thiết kế phòng ban</h3><p>Vẽ sơ đồ tổ chức: ai làm gì, ai giao việc cho ai, ai kiểm tra ai.</p></div>
+<div class="card"><h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-8 8M10 4H4v16h16v-6"/></svg></span>Nối với công cụ</h3><p>Cho agent đọc tài liệu, web, bảng tính, email để làm việc với dữ liệu của bạn.</p></div>
+<div class="card"><h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2"/><path d="M20 4v5h-5M4 20v-5h5"/></svg></span>Tự động hoá hằng ngày</h3><p>Lịch chạy, thông báo và quy trình lặp lại tự chạy mà bạn vẫn kiểm soát.</p></div>
+<div class="card"><h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span>Kiểm soát chất lượng</h3><p>Agent kiểm tra chéo, vòng duyệt của con người, xử lý khi agent làm sai.</p></div>
+<div class="card"><h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>An toàn và chi phí</h3><p>Giữ dữ liệu an toàn, đặt giới hạn chi phí, biết khi nào không nên tin AI.</p></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="sec-h"><h2>Chương trình này dành cho ai?</h2><p>Nếu bạn đang làm nhiều việc lặp lại và chưa từng lập trình, bạn ở đúng chỗ.</p></div>
+<div class="grid">
+<div class="card"><h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg></span>Chủ doanh nghiệp nhỏ</h3><p>Cần đội marketing, chăm sóc khách và báo cáo chạy đều mà chưa tuyển thêm người.</p></div>
+<div class="card"><h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20l9-16H3z"/></svg></span>Freelancer, creator</h3><p>Muốn nhân năng suất: nghiên cứu, viết nháp, lên lịch, trả lời tin nhắn.</p></div>
+<div class="card"><h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M15 20c0-2 1.5-3.5 4-3.5"/></svg></span>Quản lý, trưởng nhóm</h3><p>Muốn hiểu cách giao việc cho AI như giao cho người, để dẫn dắt đội của mình.</p></div>
+</div>
+</div>
+</section>
+
+<section id="giao-trinh">
+<div class="wrap">
+<div class="sec-h"><h2>Giáo trình</h2><p>8 buổi live, chia 3 phần. Mỗi buổi có bài thực hành; cuối chương trình team agent của bạn làm được việc thật.</p></div>
+
+<div class="part" style="--pc:var(--p1)">
+<div class="part-l"><div class="pn">Part 1</div><h3>Nền tảng</h3><p>Hiểu agent bằng ngôn ngữ đời thường và dựng agent đầu tiên.</p></div>
+<div class="mods">
+<details class="mod" open><summary><span class="mn">01</span><b>AI agent là gì, khác chatbot ở đâu</b><span class="chev">⌄</span></summary><div class="mod-body">Agent nhận mục tiêu, tự lên bước làm và dùng công cụ. Chọn công việc đầu tiên đáng giao.<ul><li>Chatbot, trợ lý, agent: khác nhau thế nào</li><li>Việc nào nên giao, việc nào giữ lại</li></ul></div></details>
+<details class="mod"><summary><span class="mn">02</span><b>Agent đầu tiên của bạn</b><span class="chev">⌄</span></summary><div class="mod-body">Viết mô tả công việc cho agent và chạy nó trên một việc thật.<ul><li>Vai trò, mục tiêu, tiêu chuẩn đầu ra</li><li>Sửa agent khi kết quả chưa đạt</li></ul></div></details>
+</div>
+</div>
+
+<div class="part" style="--pc:var(--p2)">
+<div class="part-l"><div class="pn">Part 2</div><h3>Dựng phòng ban</h3><p>Từ một agent thành một đội có vai trò và người điều phối.</p></div>
+<div class="mods">
+<details class="mod"><summary><span class="mn">03</span><b>Cho agent công cụ và kiến thức</b><span class="chev">⌄</span></summary><div class="mod-body">Gắn tài liệu, web và bảng tính để agent làm việc với dữ liệu của bạn.</div></details>
+<details class="mod"><summary><span class="mn">04</span><b>Thiết kế phòng ban</b><span class="chev">⌄</span></summary><div class="mod-body">Vẽ sơ đồ tổ chức: ai làm gì, ai giao việc cho ai, ai kiểm tra ai.</div></details>
+<details class="mod"><summary><span class="mn">05</span><b>Trưởng nhóm agent</b><span class="chev">⌄</span></summary><div class="mod-body">Một agent nhận yêu cầu, chia việc cho cả team và gom kết quả lại.</div></details>
+</div>
+</div>
+
+<div class="part" style="--pc:var(--p3)">
+<div class="part-l"><div class="pn">Part 3</div><h3>Vận hành</h3><p>Cho phòng ban chạy hằng ngày, an toàn và có kiểm soát.</p></div>
+<div class="mods">
+<details class="mod"><summary><span class="mn">06</span><b>Kiểm soát chất lượng</b><span class="chev">⌄</span></summary><div class="mod-body">Agent kiểm tra, vòng duyệt của con người, xử lý khi agent làm sai.</div></details>
+<details class="mod"><summary><span class="mn">07</span><b>Tự động hoá quy trình hằng ngày</b><span class="chev">⌄</span></summary><div class="mod-body">Lịch chạy, thông báo, nối với các công cụ bạn đang dùng, đặt giới hạn chi phí.</div></details>
+<details class="mod"><summary><span class="mn">08</span><b>Demo day</b><span class="chev">⌄</span></summary><div class="mod-body">Trình bày phòng ban AI của bạn, nhận góp ý và kế hoạch mở rộng.</div></details>
+</div>
+</div>
+</div>
+</section>
+
+<section id="dang-ky">
+<div class="wrap">
+<div class="sec-h"><h2>Chọn gói học</h2><p>Trả một lần, không gia hạn tự động.</p></div>
+<div class="pt">
+<table>
+<thead><tr><th scope="col"></th>
+<th scope="col" class="tier" data-t="live">Học live<small>1 người · một lần</small></th>
+<th scope="col" class="tier" data-t="community">Vào nhóm<small>1 người · có bản ghi</small></th>
+<th scope="col" class="tier" data-t="group5">Nhóm 5 người<small>5 suất · $60/người</small></th></tr></thead>
+<tbody>
+<tr><td>8 buổi live, ~90 phút/buổi</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+<tr><td>Bài thực hành, hỏi đáp trong buổi</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+<tr><td>Vào nhóm học viên</td><td><span class="no">—</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+<tr><td>Bản ghi xem lại 6 tháng</td><td><span class="no">—</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+<tr><td>Số người học</td><td>1</td><td>1</td><td>5</td></tr>
+<tr><td>Hoàn tiền trước buổi 2</td><td>100%</td><td>100%</td><td>100%</td></tr>
+<tr class="price-row"><td>Học phí</td><td class="price-cell">$80</td><td class="price-cell">$100</td><td class="price-cell">$300</td></tr>
+</tbody>
+</table>
+<div class="checkout">
+<form id="co" novalidate>
+<fieldset class="pick"><legend>Gói bạn chọn</legend>
+<label><input type="radio" name="tier" value="live"><span>Học live một lần · $80</span></label>
+<label><input type="radio" name="tier" value="community" checked><span>Vào nhóm + bản ghi 6 tháng · $100</span></label>
+<label><input type="radio" name="tier" value="group5"><span>Nhóm 5 người · $300</span></label>
+</fieldset>
+<label class="f" for="em">Email nhận thông tin chương trình
+<input id="em" type="email" required autocomplete="email" placeholder="ban@email.com"></label>
+<p class="hint" id="gh" hidden>Gói nhóm: sau khi thanh toán, gửi email của 5 thành viên tới business@digiskill.ai để chúng tôi xếp vào chương trình.</p>
+<label class="agree"><input id="ag" type="checkbox" required><span>Tôi đã đọc và đồng ý với <a href="/byat/policy" target="_blank">Điều khoản chương trình &amp; Chính sách hoàn tiền</a>, <a href="/terms" target="_blank">Terms of Service</a> và <a href="/privacy-policy" target="_blank">Privacy Policy</a>.</span></label>
+<p id="er" class="err" role="alert"></p>
+<button class="btn" type="submit" id="pay" style="width:100%">Thanh toán $100</button>
+</form>
+<p class="fine">🔒 Thanh toán thẻ bảo mật. DigiSkill không lưu thông tin thẻ.<br>Giá bằng USD. Ngân hàng có thể thu thêm phí đổi ngoại tệ.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="sec-h"><h2>Thông tin chương trình &amp; người bán</h2></div>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))">
+<div class="card"><h3>Giao chương trình</h3><p>Trong 24 giờ sau khi thanh toán, bạn nhận email xác nhận kèm lịch học và link vào chương trình. Gói có bản ghi: bản ghi gửi sau mỗi buổi.</p></div>
+<div class="card"><h3>Hoàn tiền</h3><p>Hoàn 100% nếu yêu cầu trước buổi 2. Chương trình bị huỷ hoặc dời mà bạn không theo được: hoàn đủ. Xem <a href="/byat/policy">chính sách chương trình</a>.</p></div>
+<div class="card"><h3>Hỗ trợ</h3><p><a href="mailto:business@digiskill.ai">business@digiskill.ai</a>, trả lời trong 1 ngày làm việc.</p></div>
+<div class="card"><h3>Người bán</h3><p>DigiSkill là tên thương mại của Ambysto Technologies LLC, Wyoming, Hoa Kỳ. Giá niêm yết bằng USD.</p></div>
+</div>
+</div>
+</section>
+
+<section id="faq">
+<div class="wrap">
+<div class="sec-h"><h2>Câu hỏi thường gặp</h2></div>
+<div class="faq">
+<details><summary>Tôi không biết code, có học được không?<span>+</span></summary><p>Được. Chương trình thiết kế cho người non-tech. Bạn làm việc bằng ngôn ngữ tự nhiên và các công cụ có giao diện, không viết code.</p></details>
+<details><summary>Học ở đâu, lúc nào?<span>+</span></summary><p>Học online trực tiếp qua video call. Lịch cụ thể được gửi qua email trong 24 giờ sau khi bạn thanh toán.</p></details>
+<details><summary>Có cần trả thêm phí công cụ AI không?<span>+</span></summary><p>Chương trình ưu tiên công cụ có gói miễn phí. Nếu bạn muốn dùng gói trả phí, giảng viên hướng dẫn cách đặt giới hạn chi phí.</p></details>
+<details><summary>Thanh toán thế nào?<span>+</span></summary><p>Trả một lần bằng thẻ Visa, Mastercard, Amex… theo gói bạn chọn ($80, $100 hoặc $300). Biên nhận gửi về email ngay sau khi thanh toán.</p></details>
+<details><summary>Nếu tôi đổi ý thì sao?<span>+</span></summary><p>Gửi email trước khi buổi 2 bắt đầu, bạn được hoàn 100% về thẻ đã dùng trong 5–10 ngày làm việc.</p></details>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<div><div style="color:var(--text);font-weight:600;margin-bottom:4px">DigiSkill</div>business@digiskill.ai · © 2026 DigiSkill · Ambysto Technologies LLC</div>
+<nav aria-label="Pháp lý"><a href="/terms">Terms of Service</a><a href="/privacy-policy">Privacy Policy</a><a href="/refund-policy">Refund &amp; Cancellation</a><a href="/byat/policy">Chính sách chương trình</a></nav>
+</div>
+</footer>
+
+<script>
+(function(){
+  var LINKS={live:'https://buy.stripe.com/eVqdR90aDa5ZbuwdaC4wM03',community:'https://buy.stripe.com/dRmeVdbTl2DxcyAeeG4wM00',group5:'https://buy.stripe.com/6oU5kDf5xgun9mo3A24wM02'};
+  var PRICE={live:80,community:100,group5:300};
+  var form=document.getElementById('co'),pay=document.getElementById('pay'),gh=document.getElementById('gh');
+  var cols={live:2,community:3,group5:4};
+  function cur(){return form.querySelector('input[name=tier]:checked').value;}
+  function paint(){
+    var k=cur();pay.textContent='Thanh toán $'+PRICE[k];gh.hidden=k!=='group5';
+    document.querySelectorAll('.pt th, .pt td').forEach(function(c){c.classList.remove('sel');});
+    document.querySelectorAll('.pt tr').forEach(function(r){var c=r.children[cols[k]-1];if(c)c.classList.add('sel');});
+  }
+  form.querySelectorAll('input[name=tier]').forEach(function(r){r.addEventListener('change',paint);});
+  document.querySelectorAll('.pt th.tier').forEach(function(th){th.style.cursor='pointer';th.addEventListener('click',function(){form.querySelector('input[value='+th.dataset.t+']').checked=true;paint();});});
+  paint();
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var em=document.getElementById('em'),ag=document.getElementById('ag'),er=document.getElementById('er');
+    var v=em.value.trim(),bad=!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    var msg=bad?'Vui lòng nhập email hợp lệ.':(!ag.checked?'Vui lòng đồng ý với điều khoản trước khi thanh toán.':'');
+    if(msg){er.textContent=msg;er.style.display='block';(bad?em:ag).focus();return;}
+    er.style.display='none';
+    location.href=LINKS[cur()]+'?prefilled_email='+encodeURIComponent(v);
+  });
+})();
+</script>
+</body>
+</html>

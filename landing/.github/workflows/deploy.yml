@@ -1,0 +1,38 @@
+# Push main → deploy production lên Vercel (project digiskill-ai). Chạy trên runner tự host `landing-homelab` ở máy dc-cicd
+# (user ci-landing, không sudo); token Vercel ở /etc/ci/landing/vercel.env, không có GitHub secrets.
+name: Deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+concurrency:
+  group: landing-main
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: [self-hosted, landing-homelab]
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy production
+        run: |
+          set -a; . /etc/ci/landing/vercel.env; set +a
+          # Bản xuất không .git: Vercel không đọc tác giả commit nên không chặn "author không thuộc team".
+          tmp=$(mktemp -d); trap 'rm -rf "$tmp"' EXIT
+          git archive HEAD | tar -x -C "$tmp"
+          cd "$tmp" && vercel deploy --prod --yes --token "$VERCEL_TOKEN" 2>&1 | tail -5
+      - name: Kiểm sau deploy
+        run: |
+          for u in https://digiskill.ai/ https://digiskill.ai/terms; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 --retry 3 --retry-all-errors "$u")
+            [ "$code" = 200 ] || { echo "$u → $code" >&2; exit 1; }
+          done
+          curl -sI https://www.digiskill.ai/ | grep -qiE '^location: https://digiskill.ai' || { echo "www không chuyển về apex" >&2; exit 1; }
+      - name: Báo Telegram
+        if: always()
+        run: |
+          set -a; . /etc/ci/landing/telegram.env; set +a
+          ok=${{ job.status == 'success' && '"✅"' || '"🔴"' }}
+          curl -s -o /dev/null --max-time 15 "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="$TELEGRAM_CHAT_ID" -d message_thread_id="$TELEGRAM_THREAD_ID" \
+            --data-urlencode "text=${ok} Landing digiskill.ai ${GITHUB_SHA::7}: ${{ job.status }} ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
