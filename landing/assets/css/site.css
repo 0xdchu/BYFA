@@ -1,0 +1,50 @@
+/* DigiSkill: trang chủ digiskill.ai. Sinh từ canvas Claude Design (khối <helmet>), style inline nằm trong index.html. */
+body{margin:0;background:#FFFFFF}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+a{color:#0B1020}a:hover{color:#0F766E}
+.nav-links{display:flex;align-items:center;gap:28px}
+.mock-side{display:flex}
+.faq summary{cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq details[open] .faq-plus{transform:rotate(45deg)}
+.tour-rail{display:flex}
+.ai-q{animation:aiQ 14s infinite}
+.ai-dots{animation:aiDots 14s infinite}
+.ai-dot{animation:aiBounce 0.9s ease-in-out infinite}
+.ai-a{animation:aiA 14s infinite}
+.ai-s1{animation:aiS1 14s infinite}
+.ai-s2{animation:aiS2 14s infinite}
+.ai-chip{animation:aiChip 14s infinite}
+.ai-ph{animation:aiPh 14s infinite}
+.ai-type{animation:aiType 14s infinite,aiCaret 0.8s step-end infinite}
+.ai-send{animation:aiSend 14s infinite}
+.ai-prog{animation:aiProg 14s linear infinite}
+.ai-hl{animation:aiHl 14s infinite}
+@keyframes aiQ{0%,12%{opacity:0;transform:translateY(10px)}16%,90%{opacity:1;transform:none}96%,100%{opacity:0;transform:none}}
+@keyframes aiDots{0%,17%{opacity:0}19%,29%{opacity:1}31%,100%{opacity:0}}
+@keyframes aiBounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-4px);opacity:1}}
+@keyframes aiA{0%,30%{opacity:0;clip-path:inset(0 0 100% 0)}31%{opacity:1;clip-path:inset(0 0 100% 0)}48%,90%{opacity:1;clip-path:inset(0 0 0 0)}96%,100%{opacity:0;clip-path:inset(0 0 0 0)}}
+@keyframes aiS1{0%,50%{opacity:0;transform:translateX(12px)}54%,90%{opacity:1;transform:none}96%,100%{opacity:0;transform:none}}
+@keyframes aiS2{0%,56%{opacity:0;transform:translateX(12px)}60%,90%{opacity:1;transform:none}96%,100%{opacity:0;transform:none}}
+@keyframes aiChip{0%,62%{transform:none}65%{transform:scale(1.18)}68%,100%{transform:none}}
+@keyframes aiPh{0%{opacity:1}1%,13%{opacity:0}15%,100%{opacity:1}}
+@keyframes aiType{0%{max-width:0;opacity:1}1%{max-width:0;animation-timing-function:steps(36,end)}11%{max-width:250px}13%{max-width:250px;opacity:1}14%,100%{max-width:0;opacity:0}}
+@keyframes aiCaret{0%,100%{border-right-color:#0B1020}50%{border-right-color:transparent}}
+@keyframes aiSend{0%,11%{transform:none}12.5%{transform:scale(.82)}14%,100%{transform:none}}
+@keyframes aiProg{0%{width:46%}100%{width:58%}}
+@keyframes aiHl{0%,52%{box-shadow:0 0 0 0 rgba(11,16,32,0)}56%,88%{box-shadow:0 0 0 2px #0B1020}94%,100%{box-shadow:0 0 0 0 rgba(11,16,32,0)}}
+.cap{opacity:0}
+.cap1{animation:cap1 14s infinite}
+.cap2{animation:cap2 14s infinite}
+.cap3{animation:cap3 14s infinite}
+.live-zoom{animation:liveZoom 18s ease-in-out infinite alternate}
+@keyframes cap1{0%,2%{opacity:0}4%,30%{opacity:1}32%,100%{opacity:0}}
+@keyframes cap2{0%,35%{opacity:0}37%,63%{opacity:1}65%,100%{opacity:0}}
+@keyframes cap3{0%,67%{opacity:0}69%,96%{opacity:1}98%,100%{opacity:0}}
+@keyframes liveZoom{0%{transform:scale(1)}100%{transform:scale(1.08) translate(-1%,1%)}}
+@media (prefers-reduced-motion: reduce){.cap{animation:none}.cap1{opacity:1}.live-zoom{animation:none}}
+@media (prefers-reduced-motion: reduce){.ai-q,.ai-a,.ai-s1,.ai-s2,.ai-chip,.ai-ph,.ai-send,.ai-prog,.ai-hl{animation:none}.ai-dots,.ai-type{display:none}}
+@media (max-width: 860px){.nav-links{display:none}}
+@media (max-width: 1080px){.tour-rail{display:none}}
+@media (max-width: 560px){.mock-side{display:none}}
