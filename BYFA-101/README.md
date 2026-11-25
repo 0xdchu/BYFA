@@ -30,4 +30,4 @@ Each session: 1 short video + 1 guide page (both in the course LMS) + 1 15-minut
 Details: `../docs/brainstorm-BYFA-101.md`.
 
 ## Ecosystem
-- **BYFA-skills** is the hands-on product in the BYFA-101 ecosystem: https://github.com/0xdonniechu/BYFA-skills
+- **BYFA-skills** is the hands-on product in the BYFA-101 ecosystem: https://github.com/0xdchu/BYFA-skills

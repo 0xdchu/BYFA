@@ -5,10 +5,10 @@ Motto: simple, effective, practical.
 
 ## BYFA-101 ecosystem (separate repos, shared ecosystem)
 - **BYFA-101** (course) — the first course, 5 modules / 12 sessions.
-- **BYFA-skills** — hands-on skill product in the BYFA-101 ecosystem: https://github.com/0xdonniechu/BYFA-skills
+- **BYFA-skills** — hands-on skill product in the BYFA-101 ecosystem: https://github.com/0xdchu/BYFA-skills
 
 ## Get started
-1. Get this repo: `git clone https://github.com/0xdonniechu/BYFA.git`, or use **Code -> Download ZIP** (no git needed).
+1. Get this repo: `git clone https://github.com/0xdchu/BYFA.git`, or use **Code -> Download ZIP** (no git needed).
 2. Watch S1-S2 in the course LMS. Write your task list and brief in `my-agent/` with any text editor.
 3. In S3 you set up Claude Code. Open the top folder of this repo (the one that holds `CLAUDE.md`) in it and type `/session 3`.
 4. After each exercise, type `/review` to get feedback on your work.
